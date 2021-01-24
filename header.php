@@ -35,7 +35,7 @@
 								<?php 
 									wp_nav_menu(
 										array(
-											'theme_locatiion'  => 'fancy_lab_main_menu'
+											'theme_locatiion'  	=> 'fancy_lab_main_menu'
 										)
 								);
 								?>
