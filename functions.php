@@ -9,6 +9,10 @@
  */
 
 /**
+ * Register Custom Navigation Walker
+ */
+	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+/**
 * Enqueue scripts and styles.
 */
 function fancy_lab_scripts(){
@@ -19,6 +23,9 @@ function fancy_lab_scripts(){
 
 	//Theme's main stylesheet
 	wp_enqueue_style( 'fancy-lab-style', get_stylesheet_uri(), array(), filemtime( get_template_directory() . '/style.css' ), 'all' );
+
+	// Google Fonts
+	wp_enqueue_style('google-fonts' , 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap|https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
 }
 add_action( 'wp_enqueue_scripts', 'fancy_lab_scripts' );
 /**
