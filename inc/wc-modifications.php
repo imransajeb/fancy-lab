@@ -1,4 +1,10 @@
 <?php
+/**
+* Template Overides for woooCommerce pages
+* @link https://docs.woocommerce.com/document/woocommerce-theme-devloper-handbook/#section-3
+*
+* @package Fancy Lab 
+*/
 function fancy_lab_wc_modify(){
 	/**
 	* Modify WooCommerce opening and  closing HTML tags
