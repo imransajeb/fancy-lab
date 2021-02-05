@@ -8,11 +8,14 @@
  * @package Fancy Lab
  */
 
-/**
- * Register Custom Navigation Walker
- */
-	require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
-/**
+
+ // Register Custom Navigation Walker
+ 
+require_once get_template_directory() . '/inc/class-wp-bootstrap-navwalker.php';
+
+require_once get_template_directory() . '/inc/customizer.php';
+
+/*
 * Enqueue scripts and styles.
 */
 function fancy_lab_scripts(){
@@ -25,7 +28,12 @@ function fancy_lab_scripts(){
 	wp_enqueue_style( 'fancy-lab-style', get_stylesheet_uri(), array(), filemtime( get_template_directory() . '/style.css' ), 'all' );
 
 	// Google Fonts
-	wp_enqueue_style('google-fonts' , 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap|https://fonts.googleapis.com/css2?family=Seaweed+Script&display=swap');
+	wp_enqueue_style('google-fonts' , 'https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&display=swap|Seaweed+Script');
+// Flexslider Javascript and CSS files
+	wp_enqueue_script( 'flexslider-min-js', get_template_directory_uri() . '/inc/flexslider/jquery.flexslider-min.js', array( 'jquery' ), '', true );
+	wp_enqueue_style( 'flexslider-css', get_template_directory_uri() . '/inc/flexslider/flexslider.css', array(), '', 'all' );
+	wp_enqueue_script( 'flexslider-js', get_template_directory_uri() . '/inc/flexslider/flexslider.js', array( 'jquery' ), '', true );
+
 }
 add_action( 'wp_enqueue_scripts', 'fancy_lab_scripts' );
 /**
@@ -59,6 +67,15 @@ function fancy_lab_config(){
 	add_theme_support('wc-product-gallery-zoom');
 	add_theme_support('wc-product-gallery-lightbox');
 	add_theme_support('wc-product-gallery-slider');
+
+	add_theme_support('custom-logo', array(
+		'height'		=> 85,
+		'width'			=> 160,
+		'flex-height'	=> true,
+		'flex-width'	=> true,
+	));
+
+	add_image_size( 'fancy-lab-slider', 1920, 800, array( 'center', 'center' ) );
 	
 	if(!isset( $content_width) ){
 		$content_width = 600;
@@ -71,3 +88,20 @@ if( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/wc-modifications.php';
 }
 
+
+/**
+ * Show cart contents / total Ajax
+ */
+add_filter( 'woocommerce_add_to_cart_fragments', 'fancy_lab_woocommerce_header_add_to_cart_fragment' );
+
+function fancy_lab_woocommerce_header_add_to_cart_fragment( $fragments ) {
+	global $woocommerce;
+
+	ob_start();
+
+	?>
+	<span class="items"><?php echo WC()->cart->get_cart_contents_count(); ?></span>
+	<?php
+	$fragments['span.items'] = ob_get_clean();
+	return $fragments;
+}
