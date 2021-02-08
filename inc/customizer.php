@@ -118,7 +118,7 @@ function fancy_lab_customizer( $wp_customize ){
 			'type'					=> 'theme_mod',
 			'default'				=> '',
 			'sanitize_callback' 	=> 'absint'
-		)
+			)
 		);
 
 		$wp_customize->add_control(
@@ -178,7 +178,7 @@ function fancy_lab_customizer( $wp_customize ){
 			'type'					=> 'theme_mod',
 			'default'				=> '',
 			'sanitize_callback' 	=> 'absint'
-		)
+			)
 		);
 
 		$wp_customize->add_control(
@@ -231,6 +231,131 @@ function fancy_lab_customizer( $wp_customize ){
 				)
 		);
 
+
+
+
+	/*-------------------------------------------------------------------------------------*/
+
+	//Home Page Settings
+
+		$wp_customize->add_section(
+		'sec_home_page', array(
+			'title'			=> 'Home Page Products and Blog Settings',
+			'description'	=> 'Home Page Section',
+		)
+	);
+
+		$wp_customize->add_setting(
+		'set_popular_max_num', array(
+			'type'					=> 'theme_mod',
+			'default'				=> '',
+			'sanitize_callback' 	=> 'absint'
+			)
+		);
+
+		$wp_customize->add_control(
+		'set_popular_max_num', array(
+			'lable'			=> 'Popular Products Max Number',
+			'description'	=> 'Popular Products Max Number',
+			'section'		=> 'sec_home_page',
+			'type'			=>  'number'
+
+			)
+		);
+
+		$wp_customize->add_setting(
+		'set_popular_max_col', array(
+			'type'					=> 'theme_mod',
+			'default'				=> '',
+			'sanitize_callback' 	=> 'absint'
+			)
+		);
+
+		$wp_customize->add_control(
+		'set_popular_max_col', array(
+			'lable'			=> 'Popular Products Max Columns',
+			'description'	=> 'Popular Products Max Columns',
+			'section'		=> 'sec_home_page',
+			'type'			=>  'number'
+
+			)
+		);
+
+
+		$wp_customize->add_setting(
+		'set_new_arrivals_max_num', array(
+			'type'					=> 'theme_mod',
+			'default'				=> '',
+			'sanitize_callback' 	=> 'absint'
+			)
+		);
+
+		$wp_customize->add_control(
+		'set_new_arrivals_max_num', array(
+			'lable'			=> 'New Arrivals Products Max Number',
+			'description'	=> 'New Arrivals Products Max Number',
+			'section'		=> 'sec_home_page',
+			'type'			=>  'number'
+
+			)
+		);
+
+		$wp_customize->add_setting(
+		'set_new_arrivals_max_col', array(
+			'type'					=> 'theme_mod',
+			'default'				=> '',
+			'sanitize_callback' 	=> 'absint'
+			)
+		);
+
+		$wp_customize->add_control(
+		'set_new_arrivals_max_col', array(
+			'lable'			=> 'New Arrivals Max Columns',
+			'description'	=> 'New Arrivals Max Columns',
+			'section'		=> 'sec_home_page',
+			'type'			=>  'number'
+
+			)
+		);
+
+			// Field 8 - Deal of the Week Checkbox
+			$wp_customize->add_setting(
+				'set_deal_show', array(
+					'type'					=> 'theme_mod',
+					'default'				=> '',
+					'sanitize_callback'		=> 'fancy_lab_sanitize_checkbox'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_deal_show', array(
+					'label'			=> 'Show Deal of the Week?',
+					'section'		=> 'sec_home_page',
+					'type'			=> 'checkbox'
+				)
+			);
+
+			// Field 9 - Deal of the Week Product ID
+			$wp_customize->add_setting(
+				'set_deal', array(
+					'type'					=> 'theme_mod',
+					'default'				=> '',
+					'sanitize_callback'		=> 'absint'
+				)
+			);
+
+			$wp_customize->add_control(
+				'set_deal', array(
+					'label'			=> 'Deal of the Week Product ID',
+					'description'	=> 'Product ID to Display',
+					'section'		=> 'sec_home_page',
+					'type'			=> 'number'
+				)
+			);
 }
 
-add_action('customize_register', 'fancy_lab_customizer');
+add_action( 'customize_register', 'fancy_lab_customizer' );
+
+function fancy_lab_sanitize_checkbox( $checked ){
+	return ( ( isset ( $checked ) && true == $checked ) ? true : false );
+}

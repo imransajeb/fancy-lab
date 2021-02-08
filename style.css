@@ -11,6 +11,7 @@ License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Tags: e-commerce, custom-menu, custom-logo, featured-images, footer-widgets, theme-options, translation-ready, blog, right-sidebar, sticky-post, threaded-comments
 */
 
+
 body{
     font-family: 'Rajdhani', sans-serif;
 }
@@ -37,30 +38,24 @@ body{
     margin: 0; 
 }
 
-.main-menu .dropdown:hover>.dropdown-menu,
-.main-menu .dropup:hover>.dropdown-menu {
-    display: inline-block;
+.main-menu .dropdown:hover>.dropdown-menu, 
+.main-menu .dropup:hover>.dropdown-menu  {
+  display: block;
 }
 
-.navbar-nav .dropdown-menu {
-    top: 36px;
-    left: -1px;
+.main-menu .navbar-toggler-icon {
+    background-image: url('img/hamburger-menu.svg');
 }
 
-.main-menu .navbar-toggler-icon{
-   background-image: url('img/hamburger-menu.svg'); 
-}
 
-/* Search Form*/
-.search-form button {
-
+/* Search Form */
+.search-form button{
     background-image: url('img/search.svg');
-    height: 25px;
+    height: 23px;
     width: 23px;
     background-repeat: no-repeat;
     background-color: transparent;
     border: none;
-
 }
 
 .search-form input[type="search"]{
@@ -80,9 +75,9 @@ body{
     width: 25px;
     display: inline-block;
     vertical-align: bottom;
-
 }
-.cart .items {
+
+.cart .items{
     background: #CA2424;
     color: #fff;
     width: 20px;
@@ -91,6 +86,8 @@ body{
     display: inline-block;
     text-align: center;
 }
+
+
 /* Flex Slider */
 .flexslider{
     border: 0 !important;
@@ -220,22 +217,27 @@ body{
 .footer-menu ul li.current-menu-item a{ 
     color: #ff9292; 
 }
+
+
 /* WooCommerce */
 
-/* Grid System*/
-
+/* Grid System */
 .woocommerce .col2-set .col-1,
-.woocommerce .col2-set .col-2 {
+.woocommerce .col2-set .col-2{
     flex: 0 0 50%;
     max-width: 50%;
 }
+
 @media all and (max-width: 767px) {
+
     .woocommerce .col2-set .col-1,
-    .woocommerce .col2-set .col-2 {
-    flex: 0 0 100%;
-    max-width: 100%;
+    .woocommerce .col2-set .col-2{
+        flex: 0 0 100%;
+        max-width: 100%;
+    }
+
 }
-}
+
 
 /* Shop */
 
@@ -478,13 +480,23 @@ body{
     background-color: #D2335B;
     color: #fff;
 }
+
+
+/*Home Templete h2 */
+
+h2.con-pop {
+    border-bottom: 4px solid green;
+    display: inline-block;
+}
+
+
 /* General */
 
-.size-auto,
+.size-auto, 
 .size-full,
 .size-large,
 .size-medium,
-.size-thumbnal{
-    max-width: 100%;
-    height: auto;
+.size-thumbnail {
+max-width: 100%;
+height: auto;
 }
