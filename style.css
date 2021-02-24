@@ -1226,7 +1226,8 @@ li.comment {
 .content-area .widget .search-form input[type="search"],
 .shop-content .widget .search-form input[type="search"],
 .search .search-form input[type="search"] {
-    background-color: #f1f1f1;
+    background-color: #fffbfb;
+    border-radius: 5px;
 }
 
 .shop-content .widget_rss ul{
@@ -1792,3 +1793,13 @@ h2.con-pop {
     display: inline-block;
     font-family: 'Seaweed Script';
 }
+
+
+/**search input befor search**/
+
+/*input.search-field {
+    width: 175px;
+}
+.textwidget {
+    text-align: justify;
+}*/

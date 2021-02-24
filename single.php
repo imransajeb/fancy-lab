@@ -13,38 +13,19 @@ get_header();
 	<div id="main">
 		<div class="container">
 			<div class="row">
-			<?php
-				while ( have_posts() ): the_post();
+				<div class="col-lg-9 col-md-8 col-12">
+					<?php
+						while ( have_posts() ): the_post();
+							get_template_part( 'template-parts/content',  'single' );
+							
+						// If comments are open or we have at least one comment, load up the comment template .
+						if( comments_open() || get_comments_number() ):
+							comments_template();
+						endif;
+					endwhile;
 					?>
-					<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-						<header>
-							<h1><?php the_title(); ?></h1>
-							<div class="meta">
-								<p>Published by <?php the_author_posts_link(); ?> on <?php echo get_the_date(); ?><br /> 
-								Categories: <span><?php the_category( ' ' ); ?></span><br />
-								<?php if( has_tag() ): ?>
-									Tags: <span><?php the_tags(); ?></span>
-								<?php endif; ?> 
-								</p>
-							</div>
-							<div class="post-thumbnail">
-								<?php 
-								if( has_post_thumbnail() ):
-									the_post_thumbnail( 'fancy-lab-blog', array( 'class' => 'ímg-fluid') );
-								endif;
-								?>
-							</div>
-						</header>
-						<div class="content">
-							<?php the_content(); ?>
-						</div>	
-					</article>
-				<?php
-				if( comments_open() || get_comments_number() ):
-					comments_template();
-				endif;
-			endwhile;
-			?>
+				</div>
+				<?php get_sidebar(); ?>
 			</div>
 		</div>
 	</div>
