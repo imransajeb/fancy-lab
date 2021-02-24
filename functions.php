@@ -55,9 +55,14 @@ function fancy_lab_config(){
 		)
 	); 
 
+	// $textdomain = 'fancy-lab';
+	// load_theme_textdomain( $textdomain, get_stylesheet_directory_uri() . '/languages/' );
+	// load_theme_textdomain( $textdomain, get_template_directory_uri() . '/languages/' );
+
+
 	$textdomain = 'fancy-lab';
-	load_theme_textdimain( $textdomain, get_stylesheet_directory_uri() . '/languages/' );
-	load_theme_textdimain( $textdomain, get_template_directory_uri() . '/languages/' );
+	load_theme_textdomain( $textdomain, get_stylesheet_directory() . '/languages/' );
+	load_theme_textdomain( $textdomain, get_template_directory() . '/languages/' );
 
 	// This theme is WooCommerce compatible so we're adding supprt to WooCommerce
 	add_theme_support('woocommerce', array(
