@@ -29,12 +29,12 @@ get_header();
 										endwhile;
 										//We're using numeric page navigation here.
 										the_posts_pagination( array(
-											'prev_text'		=> _e( 'Previous', 'fancy-lab'),
-											'next_text'		=> _e( 'Next', 'fancy-lab'),
+											'prev_text'		=> esc_html_e( 'Previous', 'fancy-lab'),
+											'next_text'		=> esc_html_e( 'Next', 'fancy-lab'),
 										));
 									else:
 								?>
-									<p><?php _e( 'Nothing to display.', 'fancy-lab' ); ?> </p>
+									<p><?php esc_html_e( 'Nothing to display.', 'fancy-lab' ); ?> </p>
 								<?php endif; ?>
 							</div>
 								<?php get_sidebar(); ?>

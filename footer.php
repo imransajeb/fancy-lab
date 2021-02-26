@@ -49,7 +49,7 @@
 				<div class="container">
 					<div class="row">
 						<div class="copyright-tex col-12 col-md-6">
-							<p><?php echo get_theme_mod( 'set_copyright', _e('Copyright X - All Right Reserved', 'fancy-lab' )); ?></p>
+							<p><?php echo esc_html( get_theme_mod( 'set_copyright', __('Copyright X - All Right Reserved', 'fancy-lab' ))); ?></p>
 						</div>
 						<nav class="footer-menu col-12 col-md-6 text-left text-md-right">
 							<?php 
